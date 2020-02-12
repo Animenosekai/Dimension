@@ -1,146 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <!--Importing CSS-->
-    <link rel="relsheet" href="/Dimension/[THE EXTENSION]/dimension.css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Dimension/[THE EXTENSION]/dimension.css">
+
+<!--Import JS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="/Dimension/[THE EXTENSION]/settingDimensionVariable.js"></script> 
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-   
-/* The Modal (background) */
-.modal {
-  display: block; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 9999; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0); /* Black w/ opacity */
-  -webkit-animation-name: fadeIn; /* Fade in the background */
-  -webkit-animation-duration: 0.4s;
-  animation-name: fadeIn;
-  animation-duration: 0.4s
-}
-
-/* Modal Content */
-.modal-content {
-  border-radius: 5px;
-  position: fixed;
-  right: 3%;
-  padding: 5px;
-  padding-left: 70%;
-  top: 1%;
-  background-color: #fefefe;
-  width: 300px;
-  height: 50px;
-  -webkit-animation-name: slideIn;
-  -webkit-animation-duration: 0.4s;
-  animation-name: slideIn;
-  animation-duration: 0.4s
-}
-
-/* The Close Button */
-.close {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-header {
-  border-radius: 5px 5px 0px 0px;
-  padding: 2px 16px;
-  background-color: #6ed7f7c0;
-  color: rgb(185, 185, 185);
-}
-
-.modal-body {
-   padding: 2px 16px;
-   color:rgb(110, 110, 110);
-   background-color: rgba(255, 255, 255, 0);
-
-}
-
-.modal-footer {
-  border-radius: 0px 0px 5px 5px;
-  height: 8px;
-  padding: 2px 16px;
-  background-color: #6ed7f7c0;
-  color: rgba(255, 255, 255, 0);
-}
-
-/* Add Animation */
-@-webkit-keyframes slideIn {
-  from {bottom: -300px; opacity: 0} 
-  to {bottom: 0; opacity: 1}
-}
-
-@keyframes slideIn {
-  from {bottom: -300px; opacity: 0}
-  to {bottom: 0; opacity: 1}
-}
-
-@-webkit-keyframes fadeIn {
-  from {opacity: 0} 
-  to {opacity: 1}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0} 
-  to {opacity: 1}
-}
-</style>
 </head>
 
 <body>
-
  <!-- The Modal(changelog) -->
  <div id="myModal" class="modal">
     <!-- Changelog content -->
     <div class="modal-content">
-     
-      <div class="modal-header">
-        <span class="close">&times;</span>
-        <h2 style="font-size: 30px; margin: 5px;"><b>Dimension</b></h2>
-     </div>
 
-     <div style="overflow-y: auto;
-     height: 300px;" class="modal-body">
+     <div class="modal-body">
 
         <!--MAIN-->
+        <span class="close">&times;</span>
         <h1 id='dimension' class="dimensionText">Dimension</h1>
-      
-      </div>
-      
-      <div class="modal-footer">
-      
+
+        <div style="height: 25px;" >
+            <div class="info">
+              <i class="icon-info-sign"></i>
+              <span class="extra-info">
+                <i class="italic">width x height</i>
+              </span>
+            </div>
+            <br>
         </div>
-      
+
+
+
       </div>
+      
+     </div>
   
-  </div>
+    </div>
   
 
 
   <!--Script to open and close the changelog-->
   <script>
-  // Get the modal
+  // Get the popup
   var modal = document.getElementById("myModal");
-  
-  // Get the button that opens the modal
-  var btn = document.getElementById("myBtn");
   
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
@@ -158,24 +63,19 @@ body {font-family: Arial, Helvetica, sans-serif;}
   </script>
 
 <script>
-var script = document.createElement('script');
-script.src = '//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js';
-script.type = 'text/javascript';
-document.getElementsByTagName('head')[0].appendChild(script);
-
 window.addEventListener("resize", dimension_script);
-
-$(document).on("resize", setVariable);
-  function setVariable(){
-    var dimension = "";
-    dimension += $(window).width();
-    dimension += "x" + $(window).height();
-    console.log(dimension);
-}
-
+var dimensionText = document.getElementById('dimension')
     function dimension_script(){
+      var width = window.innerWidth;
+      var height = window.innerHeight + 'px';
+      var dimension = width + "x" + height;
+      
+          dimensionText.classList.toggle('active');
           console.log(dimension);
-          document.getElementById("dimension").innerHTML = dimension;
+          dimensionText.innerHTML = dimension;
+          setTimeout(function(){
+            dimensionText.classList.toggle('active');
+          }, 500);
 }
       
 </script>
