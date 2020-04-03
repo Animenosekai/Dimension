@@ -2,7 +2,10 @@
     "name": "Dimension",
     "version": "1.0",
     "description": "Giving you the window dimensions live!",
-
+    "icons": { "16": "dimension_extensionicon_16.png",
+      "48": "dimension_extensionicon_48_thicc.png",
+     "128": "dimension_extensionicon_thicc.png" },
+    
     "permissions": ["activeTab"],
 
     "web_accessible_resources": ["dimension.*"],

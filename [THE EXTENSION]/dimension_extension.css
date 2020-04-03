@@ -96,7 +96,6 @@
       margin-bottom: 10px;
       transition: all 300ms ease-in-out;
       transition: opacity 1000ms ease-in-out;
-      cursor: pointer;
       font-size: 30px;
       margin-top: 15px;
       opacity: 1;
@@ -126,8 +125,7 @@
     opacity: 0;
     position: relative;
     left: 30px;
-    margin-top: -30px;
-    margin-left: -20px;
+    margin-left: 50px;
     pointer-events: none;
     transition: all 500ms ease;
     transition: margin-left 500ms ease 200ms;
@@ -139,6 +137,7 @@
     pointer-events: all;
     bottom: 23px;
     padding-left: 20px;
+    margin-left: -20px;
   }
   
   
