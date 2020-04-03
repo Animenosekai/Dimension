@@ -1,28 +1,14 @@
-console.log("inject script loaded")
-
+// author: Anime no Sekai, 2020
 inject(inject);
+dimension_closebtn()
 
 function inject(){
-    //ADDING SCRIPTS
-    var adding_dimension_scripttag = document.createElement('script')
-    adding_dimension_scripttag.setAttribute('src', 'dimension.js')
-    adding_dimension_scripttag.setAttribute('type', 'text/javascript')
-    document.getElementsByTagName('head')[0].appendChild(adding_dimension_scripttag);
-
-    //ADDING STYLES
-    var adding_dimension_stylesheet = document.createElement('link');
-    adding_dimension_stylesheet.rel = 'stylesheet';
-    adding_dimension_stylesheet.type = 'text/css';
-    adding_dimension_stylesheet.media = 'screen';
-    adding_dimension_stylesheet.href = 'dimension.css';
-    document.getElementsByTagName('head')[0].appendChild(adding_dimension_stylesheet);
-
     var adding_fontawesome_stylesheet = document.createElement('link');
     adding_fontawesome_stylesheet.rel = 'stylesheet';
     adding_fontawesome_stylesheet.type = 'text/css';
     adding_fontawesome_stylesheet.media = 'screen';
     adding_fontawesome_stylesheet.href = 'https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css';
-    document.getElementsByTagName('head')[0].appendChild(adding_dimension_stylesheet);
+    document.getElementsByTagName('head')[0].appendChild(adding_fontawesome_stylesheet);
 
     //MAIN DIV
     var dimension = document.createElement('div')
@@ -41,7 +27,6 @@ function inject(){
     //CLOSE BUTTON
     var dimension_closebtn = document.createElement('span')
     dimension_closebtn.setAttribute('id', 'dimension_closebtn')
-    dimension_closebtn.setAttribute('onclick', 'dimension_closebtn()')
     dimension_closebtn.innerHTML = '&times;'
     dimension_body_container.appendChild(dimension_closebtn)
 
@@ -53,7 +38,7 @@ function inject(){
 
     //CONTAINER
     var dimension_dimensionscontainer = document.createElement('div')
-    dimension_dimensionscontainer.setAttribute('style', "height: 25px;")
+    dimension_dimensionscontainer.setAttribute('id', "dimension_dimensionscontainer")
     dimension_body_container.appendChild(dimension_dimensionscontainer)
 
     //SUBCONTAINER
@@ -68,18 +53,15 @@ function inject(){
 
     var dimension_dimensions_extraInfos = document.createElement('span')
     dimension_dimensions_extraInfos.setAttribute('id', 'dimension_extra-info')
-    dimension_dimensions_extraInfos.innerHTML = "<i id='dimension_italic'>width x height</i>"
+    dimension_dimensions_extraInfos.innerHTML = "<i id='dimension_italic'>by Anime no Sekai</i>"
     dimension_info_container.appendChild(dimension_dimensions_extraInfos)
 
     document.body.insertBefore(dimension, document.body.firstChild);
 }
 
-/*
-function inject() {
-    var iFrame  = document.createElement ("iframe");
-    iFrame.src  = chrome.extension.getURL ("dimension.html");
 
-    document.body.insertBefore (iFrame, document.body.firstChild);
-    console.log('html injected')
+function dimension_closebtn(){
+    document.getElementById('dimension_closebtn').onclick = function(){
+        document.getElementById('dimension_container').remove()
+    }
 }
-*/
