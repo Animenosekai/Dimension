@@ -1,6 +1,7 @@
 // author: Anime no Sekai, 2020
 inject(inject);
-dimension_closebtn()
+dimension_closebtn();
+displaying_dimensions_onload();
 
 function inject(){
     var adding_fontawesome_stylesheet = document.createElement('link');
@@ -53,7 +54,7 @@ function inject(){
 
     var dimension_dimensions_extraInfos = document.createElement('span')
     dimension_dimensions_extraInfos.setAttribute('id', 'dimension_extra-info')
-    dimension_dimensions_extraInfos.innerHTML = "<i id='dimension_italic'>by Anime no Sekai</i>"
+    dimension_dimensions_extraInfos.innerHTML = "<p id='dimension_italic'>by Anime no Sekai</p>"
     dimension_info_container.appendChild(dimension_dimensions_extraInfos)
 
     document.body.insertBefore(dimension, document.body.firstChild);
@@ -64,4 +65,19 @@ function dimension_closebtn(){
     document.getElementById('dimension_closebtn').onclick = function(){
         document.getElementById('dimension_container').remove()
     }
+}
+
+function displaying_dimensions_onload(){
+    setTimeout(function(){
+        var dimensionText = document.getElementById('dimensionHeading')
+        var width = window.innerWidth;
+        var height = window.innerHeight + 'px';
+        var dimension = width + "x" + height;
+    
+        dimensionText.classList.toggle('active');
+        dimensionText.innerHTML = dimension;
+        setTimeout(function(){
+            dimensionText.classList.toggle('active');
+        }, 500);
+    },2000)
 }
