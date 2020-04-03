@@ -1,10 +1,9 @@
    
-body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 /* The Modal (background) */
-.modal {
+#modal {
+    font-family: 'Roboto', sans-serif;
     display: block; /* Shown by default */
     position: fixed; /* Stay in place */
     z-index: 9999; /* Sit on top */
@@ -21,7 +20,7 @@ body {
   }
   
   /* Modal Content */
-  .modal-content {
+  #dimension_modal-content {
     background-color: #b8b8b82c;
     text-align: center;
     position: fixed;
@@ -39,7 +38,7 @@ body {
   }
   
   /* The Close Button */
-  .close {
+  #dimension_closebtn {
     color: rgba(160, 160, 160, 0.5);
     float: right;
     font-size: 28px;
@@ -49,15 +48,15 @@ body {
     transition: all 300ms ease-in-out;
   }
   
-  .close:hover,
-  .close:focus {
+  #dimension_closebtn:hover,
+  #dimension_closebtn:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
   }
   
   
-  .modal-body {
+  #dimension_modal-body {
     box-shadow: 0 0 3pt #b8b8b8f6;
     padding: 2px 16px;
     color:grey;
@@ -87,7 +86,7 @@ body {
     to {opacity: 1}
   }
 
-    .dimensionText{
+    #dimensionHeading{
       color: grey;
       padding-left: 30px;
       margin-bottom: 10px;
@@ -95,16 +94,16 @@ body {
       cursor: pointer;
     }
   
-    .dimensionText.active{
+    #dimensionHeading.active{
       color: black;
     }
   
-    .italic{
+    #dimension_italic{
       opacity: .2;
       transition: all 300ms ease-in-out;
     }
   
-    .italic:hover{
+    #dimension_italic:hover{
       opacity: .5;
     }
 
@@ -115,7 +114,7 @@ body {
     transition: all .2s ease;
   }
   
-  .extra-info {
+  #dimension_extra-info{
     opacity: 0;
     position: relative;
     left: 30px;
@@ -125,7 +124,7 @@ body {
     display:none;
   }
   
-  .info:hover .extra-info {
+  #dimension_info:hover #dimension_extra-info {
     opacity: .5;
     display: block;
     bottom: 23px;
@@ -133,7 +132,7 @@ body {
   }
   
   
-  .info {
+  #dimension_info {
     opacity: .5;
     font-size: 20px;
     padding-left: 48%;
@@ -143,7 +142,7 @@ body {
     transition: padding-left 500ms ease 300ms;
   }
   
-  .info:hover {
+  #dimension_info:hover {
     opacity: 1;
     padding-left: 10%;
     width: 150px;
